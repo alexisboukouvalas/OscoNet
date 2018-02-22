@@ -38,7 +38,8 @@ of co-oscillating genes.
 To get a bigger network just change line
 ```
 data, phaseG, angularSpeed = GetSimISyntheticData(fPlot=False, NG=10, G=100, N=100, noiseLevel=0, ngroups=2, fReturnTruth=True)
-``` in ```OscoNetHypothesis.py```
+```
+in ```OscoNetHypothesis.py```
 
 ```G``` is the number of genes, ```NG``` the number of genes in a group, ```ngroups``` the number of groups, ```N``` the number of cells.
 
