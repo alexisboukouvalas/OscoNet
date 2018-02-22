@@ -399,7 +399,7 @@ def CalculateErrorRates(adjMatrixEstimated, adjMatrixTrue):
 
 
 if __name__ == '__main__':
-    data, phaseG, angularSpeed = GetSimISyntheticData(fPlot=False, NG=2, G=10, N=100, noiseLevel=0, ngroups=2, fReturnTruth=True)
+    data, phaseG, angularSpeed = GetSimISyntheticData(fPlot=False, NG=10, G=100, N=100, noiseLevel=0, ngroups=2, fReturnTruth=True)
 
     G, N = data.shape
     print('G=%g, N=%g' % (G, N))
