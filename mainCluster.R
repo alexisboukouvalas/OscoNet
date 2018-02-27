@@ -9,7 +9,7 @@ customlib=paste(mypath,'CustomLibrary.R',sep='')
 source(customlib)
 
 workingdir= mypath#paste(mypath,'OscopeRcode/casestudy/H1/results/',sep='')
-outDir=mypath#'Communities/'
+#outDir=mypath#'Communities/'
 
 filea=file.path('./toy.csv')
 
@@ -19,7 +19,7 @@ A=read.csv(file=filea,header=TRUE,sep=',')
 
 G=graph_from_data_frame(A[,c(2,3,4)],directed =FALSE)
 
-
+npresent=length(get.vertex.attribute(G,"name"))
 ###############WALKTRAP COMMUNITY 
 wt=walktrap.community(G,steps=4)
 modularity(wt)
@@ -32,7 +32,7 @@ colnames(Mwt)='CommunityID'
 merMwt=Mwt#merge(details,Mwt,by.x=case,by.y=0,all.y=TRUE)
 write.table(merMwt, file=paste(workingdir,filea,'Comm.txt',sep=''),sep='\t',quote=FALSE,row.names=FALSE)
 
-
+##we are excluding singletons and performinf a significance test on the communities
 IdGE10=which(sz>1)
 n10=length(IdGE10)
 MatSummary=matrix('NA',n10,6)
@@ -66,5 +66,6 @@ Report10=data.frame(sizes10,NumberOfEdges=NumberOfEdges,Significance=PsigCom,Den
 Report10sig=Report10[which(as.numeric(as.vector(Report10$Significance))<0.01),]
 write.table(Report10sig, file=paste(workingdir,'Report1sig','.txt',sep=''),sep='\t',quote=FALSE,row.names=FALSE,col.names=TRUE)
 
-basicInfo=data.frame(sizes10,NumberOfEdges=NumberOfEdges,Significance=PsigCom)
-basicInfo=basicInfo[which(as.numeric(as.vector(basicInfo$Significance))<0.09),]
+#This contains all the basic info about the communities with at least 2 nodes
+#basicInfo=data.frame(sizes10,NumberOfEdges=NumberOfEdges,Significance=PsigCom)
+#basicInfo=basicInfo[which(as.numeric(as.vector(basicInfo$Significance))<0.09),]
