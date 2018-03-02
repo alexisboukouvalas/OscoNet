@@ -429,7 +429,9 @@ if __name__ == '__main__':
 
     trueDF = pd.DataFrame(adjMatrixTrue, columns=data.index, index=data.index)
     trueDF.to_csv('trueClusteringAdjMatrix.csv')
-
+    edgeNetworkTrue = CreateEdgeNetwork(adjMatrixBootstrap=adjMatrixTrue, cost=np.ones((G, G)),
+                                    psi=np.ones((G, G)), geneNames=data.index)
+    edgeNetworkTrue.to_csv('trueClusteringEdgeNetwork.csv')
     ####################### Create edge representation ############################################
     edgeNetwork = CreateEdgeNetwork(adjMatrixBootstrap=adjMatrixBootstrapQ, cost=r['cost'],
                                                     psi=r['psi'], geneNames=testddirect.index)
