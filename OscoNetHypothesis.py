@@ -427,6 +427,9 @@ if __name__ == '__main__':
             adjMatrixTrue[i, j] = (angularSpeed[i] == angularSpeed[j])
     adjMatrixTrue[dj] = False  # have to do it, because white noise diagonal not true
 
+    trueDF = pd.DataFrame(adjMatrixTrue, columns=data.index, index=data.index)
+    trueDF.to_csv('trueClusteringAdjMatrix.csv')
+
     ####################### Create edge representation ############################################
     edgeNetwork = CreateEdgeNetwork(adjMatrixBootstrap=adjMatrixBootstrapQ, cost=r['cost'],
                                                     psi=r['psi'], geneNames=testddirect.index)
