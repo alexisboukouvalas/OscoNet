@@ -1,54 +1,28 @@
 # OscoNet
-OscoNet code.
+Bootstrap-based OscoNet method: 
+Method to infer sinusoidal oscillations in single cell data.
 
-## A simple example
-
-Just run OscoNetHypothesis.py in ipython.
-
-Assuming all packages are installed, this will demonstrate the hypothesis test on a simple
-toy example with 100 genes and 100 cells.
-
-The code should take approximately 1 minute to run.
-This is the output you should get:
-
-```
-G=10, N=100
-Removing genes Index([], dtype='object')
-postprocessed data size (10, 100)
-DoTheBootstrap:: Running on 1  cores with 10 target genes.
-DoTheBootstrapFast: Initial search Using NP
-DoTheBootstrapFast: multiple passes per gene
-Bootstrap parallel time with 1 workers took 0.5 secs. Bootstrap samples 100. Use TF 0.
-Completed in 0.545126 seconds
-qvalues pi0=1.091, estimated proportion of null features
-got pi0 > 1 (1.091) while estimating qvalues, setting it to 1
-Is adjacency matrix symmetric? True
-Adjacency matrix now symmetric after applying AND transformation
-Sparseness 0.266667
-Writing edge network to toy.csv number of edges 12
-False positive rate 0.0 True positive rate 1.0 False discrovery rate 0.0
-True positives= 24 True negatives= 76 False positives= 0 False negatives 0
-```
-
-The program also generate a csv file ```toy.csv``` containing an edge network representation of
-adjacency graph. The latter contains edges only on significant pairs
-of co-oscillating genes.
+## Installation
+1. Create new environment `conda create --name fullosconet python=3` and to activate it with 
+`conda activate fullosconet` before proceeding.
+1. Install required packages using `pip install -r requirements.txt`
+1. Install package `pip install -e .`
+1. Install numba `conda install numba`
+1. Verify your installation by running `pytest` from the project root directory `FullOscoNet`.
+Note this can take around 1-2 minutes.
 
 
-To get a bigger network just change line
-```
-data, phaseG, angularSpeed = GetSimISyntheticData(fPlot=False, NG=10, G=100, N=100, noiseLevel=0, ngroups=2, fReturnTruth=True)
-```
-in ```OscoNetHypothesis.py```
+## Synthetic data
+1. Run ` python OscopeBootstrap/oscope_tf.py --test_mode
+` for a simple demonstration of the method on synthetic data. This will run under a quick configuration
+to demonstrate the capabilities of the method. This should take 10-20 seconds.
+1. Remove the `--test_mode` flag for a 1000-sample bootstrap test on the exact synthetic run configuraiton used in the paper
+(1000 genes, 100 cells with 3 clusters of co-oscillating genes).
 
-```G``` is the number of genes, ```NG``` the number of genes in a group, ```ngroups``` the number of groups, ```N``` the number of cells.
+## Notebooks
+1. `notebooks/OscoNet introduction.ipynb`: provides an introduction to the hypothesis test on a simple synthetic example.
+2. `notebooks/Reproduce_figures_5_7.ipynb` : pseudotime on Whitfield microarray data. To see how the spectral embedding
+pseudotime method can be applied.
 
-The other parameter in the code is ```NumPerm=100```
-which is the number of bootstrap samples.
 
-
-## Dependencies
-
-You need to install joblib
-```pip install joblib```
 
