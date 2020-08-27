@@ -12,6 +12,8 @@ https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03561-y
 
 contact: l.cutillo@leeds.ac.uk
 
+The authors would like to thank Michael Croucher @mikecroucher for code optimization.
+
 ## Installation
 1. Create new environment `conda create --name fullosconet python=3` and to activate it with 
 `conda activate fullosconet` before proceeding.
