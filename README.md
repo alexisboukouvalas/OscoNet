@@ -39,7 +39,7 @@ pseudotime method can be applied.
 4. `notebooks/Reproduce_Table5.ipynb`: Reproduce table 5 from OscoNet paper
 5. `notebooks/Reproduce_Figure4.ipynb`: Reproduce Figure 4 from OscoNet paper
 
-### Note On Working with real data
+### Notes on using real data
 
 OscoNet requires the data to be already normalised and rescaled between [-1,1].
 
