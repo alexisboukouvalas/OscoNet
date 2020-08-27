@@ -1,10 +1,15 @@
 # OscoNet
 Bootstrap-based OscoNet method: 
-Method to infer sinusoidal oscillations in single cell data. This software reproduces the approach presented in
+Method to infer sinusoidal oscillations in single cell data. 
+
+This software reproduces the approach presented in
 'OscoNet: inferring oscillatory gene networks'
 by Luisa Cutillo, Alexis Boukouvalas, Elli Marinopoulou, Nancy Papalopulu & Magnus Rattray 
+
 BMC Bioinformatics volume 21, Article number: 351 (2020)
+
 https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03561-y
+
 contact: l.cutillo@leeds.ac.uk
 
 ## Installation
