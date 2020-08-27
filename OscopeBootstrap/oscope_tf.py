@@ -327,7 +327,7 @@ if __name__ == '__main__':
     alpha = 0.001  # significance level
     data_df, phaseG, angularSpeed = GetSimISyntheticData(NG=NG, G=G, ngroups=ngroups, N=N, noiseLevel=0)
 
-    adjacency_matrix, qvalues = bootstrap_hypothesis_test(n_bootstrap, data_df.values, alpha=alpha,
+    adjacency_matrix, qvalues, cost_ng = bootstrap_hypothesis_test(n_bootstrap, data_df.values, alpha=alpha,
                                                           grid_points_in_search=grid_points_in_search)
 
     adjacency_matrix_true = true_adj_matrix(G, angularSpeed)
